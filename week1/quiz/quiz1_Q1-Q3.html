@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+    <script>
+
+        const foo = () => true;
+        document.writeln(foo()); //true
+
+        function foo1(){return true;}
+        document.writeln(foo1()); //true
+
+        const foo3 = true;
+        document.writeln(foo3()); //error: not a function
+
+        function foo4(){true;}
+        document.writeln(foo4()); //undefined
+
+        const foo5 = (x) => true;
+        document.writeln(foo5()); //true
+
+        function foo6(){return true;}
+        document.writeln(foo6); //doesnt work
+
+        const foo7 = () => true;
+        document.writeln(foo7(1)); //true
+
+        //
+        //
+
+        function one(x){
+            return x;
+        }
+        function two(x, y){
+            return x + y;
+        }
+        function three(x, y, z){
+            return x + y + z;
+        }
+        const functions = [null, one, two, three];
+        document.writeln(functions[2](1,1,1)); //call two(1,1,1) returns 2
+        document.writeln(functions[3](1,1)); //call three(1,1) returns NaN (Not a Number)
+        document.writeln(functions[1](1)); //call one, return 1
+
+        //
+        //
+
+        //write a function named 'id' that returns its argument,
+        // such that for all x, id(x) === x
+        function id(x){return x;}
+        //const xy = Math.random();
+        //document.writeln(id(xy) === xy);
+
+        //
+        //
+
+        //adding two parameters tght
+        const plus = abc => arg => abc + arg;
+        //const xx = Math.random();
+        //const yy = Math.random();
+        //const plus3 = plus(3);
+        //document.writeln(plus(xx)(yy) === xx + yy && plus3(yy) === yy + 3);
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

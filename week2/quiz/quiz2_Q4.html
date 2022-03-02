@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+    <script>
+
+        // function two() {
+        //     let x = 2;
+        //     return x;
+        // }
+        // try{ //is x in scope?
+        //     x;
+        //     document.writeln(true)
+        // } catch (e) {
+        //     document.writeln(false) // returns false! x not in scope
+        // }
+
+        //
+        //
+
+        // function two() {
+        //     x = 2;
+        //     return x;
+        // }
+        // two();
+        //
+        // try { // is x in scope?
+        //     x;
+        //     document.writeln(true) // returns true! x is in scope
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+
+        //
+        //
+
+        // function two() {
+        //     x = 2;
+        //     return x;
+        // }
+        //
+        // try {
+        //     x;
+        //     document.writeln(true)
+        // } catch (e) {
+        //     document.writeln(false) // returns false!
+        // }
+
+        //
+        //
+
+        // let x = 0;
+        // function two() {
+        //     let x = 2;
+        //     return x;
+        // }
+        // two();
+        //
+        // try {
+        //     x;
+        //     document.writeln(x === 0) // returns true
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
+
+        //
+        //
+
+        let x = 0;
+        function two() {
+            x = 2;
+            return x;
+        }
+        two();
+
+        try {
+            x;
+            document.writeln(x === 0)
+        } catch (e) {
+            document.writeln(false) //returns false
+        }
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
