@@ -5,19 +5,49 @@
     <title>Scope Tests</title>
 </head>
 <body>
-    <script>
+<script>
 
+    //CHECK!
+    let x = 0;
+    (() => {
+        let x = 1;
+        document.writeln(x); //1
+    })();
+    document.writeln(x); //0
 
-        const id = x => x;
-        const Konst = id => x => id;
+    //theoretically also possible (newer but not necessarily the best way)
+    let x = 0;
+    {
+        let x = 1;
+        document.writeln(x); //1
+    }
+    document.writeln(x); //0
 
-        const Kite  = Konst(id);
+    //
+    //
 
-        document.writeln( id(id) === id);
-        document.writeln( Konst(id)(undefined) === id);
-        document.writeln( Kite(undefined)(id) === id);
+    // Eta Reduktion
+    x => y => plus(x)(y) // letzter Parameter darf 'weggekürzt werden wenn der Lambda-Ausdruck davor derselbe ist
+    x => plus(x)
+    plus
 
-    </script>
+    //
+    //
+
+    const id = x => x;
+
+    // const Konst = x => y => x;
+    const Konst = id => x => id; // done: Alpha Translation
+
+    // const Kite = x => y => y;
+    // const Kite = x => y => id(y);
+    // const Kite = x => id; // done: Eta Reduktion
+    const Kite = Konst(id);
+
+    document.writeln( id(id) === id);
+    document.writeln( Konst(id)(undefined) === id);
+    document.writeln( Kite(undefined)(id) === id);
+
+</script>
 </body>
 </html>
-
