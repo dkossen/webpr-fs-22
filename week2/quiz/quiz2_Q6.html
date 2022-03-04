@@ -16,7 +16,7 @@
         const F1 = x => y => konst(id)(x)(y);
         const F2 = x => konst(id)(x);
         const F3 = konst(id);
-        // answer: yes
+        // answer: yes; the last parameter (x) can be reduced
 
         //
         //
@@ -28,7 +28,7 @@
         const F1 = x => y => konst(id)(x)(y);
         const F2 = x => konst(id)(x);
         const F3 = konst(id);
-        // answer: yes
+        // answer: yes; the last parameter (y) can be reduced
 
         //
         //
@@ -37,6 +37,9 @@
         const F1 = x => (x => x);
         const F2 = y => (x => y);
         // answer: no; not all x's have been replaced by y's
+        document.writeln(F1(1)(3)); // 3
+        document.writeln(F2(1)(3)); // 1
+        document.writeln(F1(1)(3) === F2(1)(3)); // false
 
         //
         //
@@ -64,7 +67,7 @@
 
         const a1 = y => id(y);
         const a2 = y => y;
-        // answer: TBD? (I think so..?)
+        // answer: TBD! (I think so..?)
 
 
     </script>
