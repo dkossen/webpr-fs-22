@@ -10,16 +10,29 @@
         /////////////////////////////////
 
         // Alpha equivalence/translation:
-        // renaming of bound variables, e.g. (λx.fx)→(λy.fy)
+        // 'Renaming' of bound variables, e.g. (λx.fx)→(λy.fy)
+        // Note: when alpha-converting a lambda abstraction, always choose a new variable that does not occur
+        // in the body of the function being alpha-converted
+
         const alpha1 = x => x;
         const alpha2 = y => y;
 
         document.writeln(alpha1(1) === alpha2(1)); // true
 
+        //
+        //
+
+        const Konst1 = x => y => x;
+        const Konst2 = id => x => id;
+
+        document.writeln(Konst1(1)(3) === Konst2(1)(3)); // true
+
         /////////////////////////////////
 
         // Beta reduction:
-        // the application (λx.x+1)3 reduces to 3+1
+        // The purpose of β-reduction is to compute the result of a function by function application using specific rules.
+        // The application (λx.x+1)3 reduces to 3+1
+
         const beta01 = x => x + 1;
         const beta02 = beta01(3);
 
@@ -39,7 +52,8 @@
         /////////////////////////////////
 
         // Eta reduction:
-        // (y) can he removed here if it's the last parameter
+        // the last parameter (here: y) can be removed here if the lambda expression before is the same (y as well)
+
         const plus = x => y => x + y;
 
         const eta1 = x => y => plus(x)(y);
