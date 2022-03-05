@@ -7,7 +7,6 @@
 <body>
 <script>
 
-    //CHECK!
     let x = 0;
     (() => {
         let x = 1;
@@ -26,20 +25,12 @@
     //
     //
 
-    // Eta Reduktion
-    x => y => plus(x)(y) // letzter Parameter darf 'weggekürzt werden wenn der Lambda-Ausdruck davor derselbe ist
-    x => plus(x)
-    plus
-
-    //
-    //
-
     const id = x => x;
 
-    // const Konst = x => y => x;
+    // const Konst = x => y => x; // returns the first parameter
     const Konst = id => x => id; // done: Alpha Translation
 
-    // const Kite = x => y => y;
+    // const Kite = x => y => y; // returns the last parameter
     // const Kite = x => y => id(y);
     // const Kite = x => id; // done: Eta Reduktion
     const Kite = Konst(id);
