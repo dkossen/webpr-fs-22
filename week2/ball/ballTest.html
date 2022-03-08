@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html><head></head><body>
 
-<h1>Testing Snake</h1>
+<h1>Testing Ball</h1>
 
 <script src="ball.js">
 </script>
@@ -9,27 +9,33 @@
 
 <script>
 
-let ok = [];
+    let ok = [];
 
-// TODO test:
+    // initial conditions
+    ok[0] = ball.x > 0 && ball.x < 390;
+    ok[1] = ball.y > 0 && ball.y < 390;
 
-// initial conditions
+    document.writeln(callCount);
 
-// after so-many calls to nextBoard, check the position and the x and y velocities
+    // after so-many calls to nextBoard, check the position and the x and y velocities
+    if (callCount === 1) {
+        ok[2] = ball.x === 25;
+    }
 
-// test result report
-if ( ok.every( elem => elem) ) {
-    document.writeln("All "+ ok.length +" tests ok.");
-} else {
-    document.writeln("Not all tests ok! Details:");
-    for (let i = 0; i<ok.length; i++) {
-        if(ok[i]) {
-            document.writeln("Test "+ i +" ok");
-        } else {
-            document.writeln("Test "+ i +" failed");
+
+    // test result report
+    if ( ok.every( elem => elem) ) {
+        document.writeln("All "+ ok.length +" tests ok.");
+    } else {
+        document.writeln("Not all tests ok! Details:");
+        for (let i = 0; i<ok.length; i++) {
+            if(ok[i]) {
+                document.writeln("Test "+ i +" ok");
+            } else {
+                document.writeln("Test "+ i +" failed");
+            }
         }
     }
-}
 
 </script>
 
