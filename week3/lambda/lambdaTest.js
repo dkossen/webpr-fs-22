@@ -1,6 +1,5 @@
 // requires lambda.js
 
-
 let ok = [];
 
 // id
@@ -25,7 +24,7 @@ ok.push( and(F)(F) === F );
 ok.push( and(T)(F) === F );
 ok.push( and(F)(T) === F );
 ok.push( and(T)(T) === T );
-//
+
 // // or
 ok.push( or(F)(F) === F );
 ok.push( or(T)(F) === T );
@@ -73,9 +72,22 @@ const safeDiv = num => divisor =>
     ? Left("schlecht!")
     : Right(num / divisor);
 
+either( safeDiv(1)(0) )
+      ( x => console.error(x)) // "schlecht!"
+      ( x => console.log(x));
+
+id( safeDiv(1)(0) ) // because either = id
+( x => console.error(x)) // "schlecht!"
+    ( x => console.log(x));
+
+safeDiv(1)(0) // done: Beta Reduction
+( x => console.error(x)) // "schlecht!"
+    ( x => console.log(x));
+
+
 safeDiv(1)(1)
       ( x => console.error(x))
-      ( x => console.log(x));
+      ( x => console.log(x)); // 1
 
 //
 // const [Cash, CreditCard, Invoice, PayPal, pay] = Choice(4);
