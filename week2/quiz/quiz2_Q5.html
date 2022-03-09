@@ -14,7 +14,7 @@
         // })();
         //
         // try { // is x unchanged?
-        //     document.writeln(x === 0) // returns true; is is unchanged
+        //     document.writeln(x === 0) // returns true; x is unchanged
         // } catch (e) {
         //     document.writeln(false)
         // }
@@ -32,22 +32,22 @@
         //     document.writeln(x === 0)
         // } catch (e) {
         //     document.writeln(false)
-        // }
+        }
 
         //
         //
 
-        // let x = 0;
-        // ( () => {
-        //     x = 2;
-        //     return x;
-        // })();
-        //
-        // try { // is x unchanged?
-        //     document.writeln(x === 0)
-        // } catch (e) {
-        //     document.writeln(false) // returns false; x = 2
-        // }
+        x = 0;
+        ( () => {
+            x = 2;
+            return x;
+        })();
+
+        try { // is x unchanged?
+            document.writeln(x === 0)
+        } catch (e) {
+            document.writeln(false) // error
+        }
 
         //
         //
@@ -82,18 +82,18 @@
         //
         //
 
-        let x = 0;
-        function two() { // x unchanged because of 'function'
-            let x = 2;
-            return x;
-        }
-        two();
-
-        try { // is x unchanged?
-            document.writeln(x === 0) // returns true; x unchanged
-        } catch (e) {
-            document.writeln(false)
-        }
+        // let x = 0;
+        // function two() { // x unchanged because of 'function'
+        //     let x = 2;
+        //     return x;
+        // }
+        // two();
+        //
+        // try { // is x unchanged?
+        //     document.writeln(x === 0) // returns true; x unchanged
+        // } catch (e) {
+        //     document.writeln(false)
+        // }
 
     </script>
 </body>
