@@ -13,7 +13,7 @@
 
     const longRunning = x => {
         out.textContent += " ...";
-        setTimeout( _=> out.textContent += " " + x, 1000 * 2);
+        setTimeout( _=> out.textContent += " " + x, 1000 * 2); // 2 seconds
         return x;
     };
 
@@ -35,20 +35,34 @@
     const LEVEL_DEBUG   =  4;
     let logLevel = LEVEL_LOG;
 
+/*  // strict version (not working as desired, yet)
+    const error = args => { if (logLevel >= LEVEL_ERROR) console.error(args); }
+    const warn  = args => { if (logLevel >= LEVEL_WARN)  console.warn (args); }
+    const info  = args => { if (logLevel >= LEVEL_INFO)  console.info (args); }
+    const log   = args => { if (logLevel >= LEVEL_LOG)   console.log  (args); }
+    const debug = args => { if (logLevel >= LEVEL_DEBUG) console.debug(args); }
+    const logAll = () => {
+        error("error", longRunning("error"));
+        warn ("warn",  longRunning("warn") );
+        info ("info",  longRunning("info") );
+        log  ("log",   longRunning("log")  );
+        debug("debug", longRunning("debug"));
+    }
+*/
 
-    // strict version (not working as desired, yet)
     const error = argF => { if (logLevel >= LEVEL_ERROR) console.error(argF()); }
     const warn  = argF => { if (logLevel >= LEVEL_WARN)  console.warn (argF()); }
     const info  = argF => { if (logLevel >= LEVEL_INFO)  console.info (argF()); }
     const log   = argF => { if (logLevel >= LEVEL_LOG)   console.log  (argF()); }
     const debug = argF => { if (logLevel >= LEVEL_DEBUG) console.debug(argF()); }
 
+    //todo check original code in video
     const logAll = () => {
-        error(() => longRunning("error"));
-        warn (() => longRunning("warn") );
-        info (() => longRunning("info") );
-        log  (() => longRunning("log")  );
-        debug(() => longRunning("debug"));
+        error( () => longRunning("error")); //will only be evaluated when needed
+        warn ( () => longRunning("warn") );
+        info ( () => longRunning("info") );
+        log  ( () => longRunning("log")  );
+        debug( () => longRunning("debug"));
     }
 
 
