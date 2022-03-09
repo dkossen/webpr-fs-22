@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<script>
+
+    // Assignment: 'either' enforces error handling
+
+    /* Given the function definitions from the lecture for 'either', 'Left', 'Right', 'id',
+    and safeDiv as shown below, provide a function 'eShow' that takes the result
+    from safeDiv and returns either the error string (in case of division by 0)
+    or otherwise the success message "Result is: " with the result appended.
+    Provided is: */
+    const Left   = x => f => g => f (x);
+    const Right  = x => f => g => g (x);
+    const either = e => f => g => e (f) (g);
+    const id = x => x;
+    //
+
+    const eShow = x =>
+        either(x) === safeDiv(x)(x)
+            ? "err"
+            : "Result is: ";
+
+    // Your solution will be tested against:
+    const x_ = Math.random();
+    const safeDiv = num => divisor =>
+        divisor === 0
+            ? Left  ("Cannot divide by 0")
+            : Right (num / divisor);
+
+    // document.writeln(eShow( safeDiv(1)(0))  === "Cannot divide by 0" && eShow( safeDiv(x_)(1)) === "Result is: "+x_);
+    document.writeln(safeDiv(1)(0));
+    document.writeln("<br/>");
+    document.writeln(eShow( safeDiv(1)(0)));
+    document.writeln("<br/>");
+    document.writeln(eShow( safeDiv(1)(0))  === "Cannot divide by 0");
+    document.writeln("<br/><br/>");
+
+    document.writeln( safeDiv(3)(1));
+    document.writeln("<br/>");
+    document.writeln(eShow( safeDiv(3)(1)));
+    document.writeln("<br/>");
+    document.writeln(eShow( safeDiv(3)(1)) === "Result is: "+x_);
+
+    eShow( safeDiv(1)(0))  === "Cannot divide by 0" && eShow( safeDiv(x_)(1)) === "Result is: "+x_
+
+</script>
+</body>
+</html>
