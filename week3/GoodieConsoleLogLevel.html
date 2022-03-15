@@ -56,7 +56,16 @@
     const log   = argF => { if (logLevel >= LEVEL_LOG)   console.log  (argF()); }
     const debug = argF => { if (logLevel >= LEVEL_DEBUG) console.debug(argF()); }
 
-    //todo check original code in video
+    /*  can be simplified into a lambda expression (see below)
+    const logAll = () => {
+        error("error", longRunning("error"));
+        warn ("warn",  longRunning("warn") );
+        info ("info",  longRunning("info") );
+        log  ("log",   longRunning("log")  );
+        debug("debug", longRunning("debug"));
+    }
+    */
+
     const logAll = () => {
         error( () => longRunning("error")); //will only be evaluated when needed
         warn ( () => longRunning("warn") );
