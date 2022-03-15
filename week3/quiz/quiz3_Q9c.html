@@ -20,10 +20,16 @@
     const id = x => x;
     //
 
-    const eShow = x =>
-        either(x) === safeDiv(x)(x)
-            ? "err"
-            : "Result is: ";
+    // const eShow = x =>
+    //     either(x) === safeDiv(x)(x)
+    //         ? "err"
+    //         : "Result is: ";
+
+    const result = safeDiv(1)(1);
+
+    either (result)
+    (msg => document.writeln(msg))
+    (val => document.writeln(val === 1));
 
     // Your solution will be tested against:
     const x_ = Math.random();

@@ -13,11 +13,11 @@
     // standard either
     const Left   = x => f => g => f (x);
     const Right  = x => f => g => g (x);
-    const either = e => f => g => e (f) (g); //either Left or Right
+    const either = e => f => g => e (f) (g); // either Left or Right
 
     const safeDiv = num => divisor => divisor === 0
-            ? Left ("cannot divide by 0")
-            : Right (num / divisor);
+            ? Left ("cannot divide by 0") // 'f()'
+            : Right (num / divisor); // 'g()'
 
     //
     //
@@ -32,20 +32,20 @@
     //
     //
 
-    // const result = safeDiv(1)(1);
-    //
-    // either (result)
-    //     (msg => document.writeln(msg))
-    //     (val => document.writeln(val === 1)); // shows true --> todo: why?
-
-    //
-    //
-
-    const result = safeDiv(1)(0);
+    const result = safeDiv(1)(1);
 
     either (result)
-        (msg => document.writeln(msg));
-        (val => document.writeln(val === 1));
+        (msg => document.writeln(msg))
+        (val => document.writeln(val === 1)); // shows true --> todo: why?
+
+    //
+    //
+
+    // const result = safeDiv(1)(0);
+    //
+    // either (result)
+    //     (msg => document.writeln(msg));
+    //     (val => document.writeln(val === 1));
 
     // Produces no output (fails silently) --> todo: why?
 
