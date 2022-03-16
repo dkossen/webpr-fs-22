@@ -22,32 +22,9 @@
     //
     //
 
-    // const result = safeDiv(1)(0);
-    //
-    // either (result)
-    //     (msg => document.writeln(msg));
+    const result = safeDiv(1)(0);
 
-    // Produces no output (fails silently) --> todo: why?
-
-    //
-    //
-
-    const result = safeDiv(1)(1);
-
-    either (result)
-        (msg => document.writeln(msg))
-        (val => document.writeln(val === 1)); // shows true --> todo: why?
-
-    //
-    //
-
-    // const result = safeDiv(1)(0);
-    //
-    // either (result)
-    //     (msg => document.writeln(msg));
-    //     (val => document.writeln(val === 1));
-
-    // Produces no output (fails silently) --> todo: why?
+    either (result) (msg => document.writeln(msg));
 
 </script>
 </body>
