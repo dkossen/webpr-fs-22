@@ -18,40 +18,19 @@
     const Right  = x => f => g => g (x);
     const either = e => f => g => e (f) (g);
     const id = x => x;
+
     //
 
-    // const eShow = x =>
-    //     either(x) === safeDiv(x)(x)
-    //         ? "err"
-    //         : "Result is: ";
-
-    const result = safeDiv(1)(1);
-
-    either (result)
-    (msg => document.writeln(msg))
-    (val => document.writeln(val === 1));
+    const eShow = e => either(e)(id)(e => "Result is: " + e);
 
     // Your solution will be tested against:
     const x_ = Math.random();
     const safeDiv = num => divisor =>
         divisor === 0
-            ? Left  ("Cannot divide by 0")
-            : Right (num / divisor);
+            ? Left("Cannot divide by 0")
+            : Right(num / divisor);
 
-    // document.writeln(eShow( safeDiv(1)(0))  === "Cannot divide by 0" && eShow( safeDiv(x_)(1)) === "Result is: "+x_);
-    document.writeln(safeDiv(1)(0));
-    document.writeln("<br/>");
-    document.writeln(eShow( safeDiv(1)(0)));
-    document.writeln("<br/>");
-    document.writeln(eShow( safeDiv(1)(0))  === "Cannot divide by 0");
-    document.writeln("<br/><br/>");
-
-    document.writeln( safeDiv(3)(1));
-    document.writeln("<br/>");
-    document.writeln(eShow( safeDiv(3)(1)));
-    document.writeln("<br/>");
-    document.writeln(eShow( safeDiv(3)(1)) === "Result is: "+x_);
-
+    document.writeln(eShow(safeDiv(1)(0))  === "Cannot divide by 0" && eShow( safeDiv(x_)(1)) === "Result is: "+x_);
     eShow( safeDiv(1)(0))  === "Cannot divide by 0" && eShow( safeDiv(x_)(1)) === "Result is: "+x_
 
 </script>
