@@ -72,16 +72,16 @@ const safeDiv = num => divisor =>
     ? Left("schlecht!")
     : Right(num / divisor);
 
-either( safeDiv(1)(0) )
-      ( x => console.error(x)) // "schlecht!"
-      ( x => console.log(x));
+// either( safeDiv(1)(0) )
+//     ( x => console.error(x)) // "schlecht!"
+//     ( x => console.log(x));
 
-id( safeDiv(1)(0) ) // because either = id
-( x => console.error(x)) // "schlecht!"
-    ( x => console.log(x));
+// id( safeDiv(1)(0) ) // because either = id
+// ( x => console.error(x)) // "schlecht!"
+//     ( x => console.log(x));
 
 safeDiv(1)(0) // done: Beta Reduction
-( x => console.error(x)) // "schlecht!"
+    ( x => console.error(x)) // "schlecht!"
     ( x => console.log(x));
 
 

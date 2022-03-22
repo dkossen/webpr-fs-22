@@ -47,24 +47,6 @@
     const either = id;
 
 
-    // const konst = x => y => x;
-    // const snd   = x => y => y;
-    //
-    // const T = konst;
-    // const F = snd;
-    //
-    // const and = p => q => p (q) (p);
-    // const or  = p => q => p (p) (q);
-    //
-    // const Pair      = x => y => f => f(x)(y);
-    // const firstname = konst;
-    // const lastname  = snd;
-    //
-    // const Left   = x => f => g => f(x);
-    // const Right  = x => f => g => g(x);
-    // const either = id;
-    //
-    //
     // ----- special -----
     //
     // const Tuple = n => [
