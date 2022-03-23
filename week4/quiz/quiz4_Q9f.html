@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<script>
+
+    /* Provide a function (or lambda expression) named 'join' such that
+    [1,2,3].reduce(join('-')) equals '1-2-3' */
+
+    const join = x => (acc, cur) => acc + x + cur;
+    // works --> todo: check logic
+
+    // Test:
+    // document.writeln([1,2,3].reduce(join('-')));
+    document.writeln([1,2,3].reduce(join('-')) === '1-2-3');
+    // [1,2,3].reduce(join('-')) === '1-2-3'
+
+</script>
+</body>
+</html>

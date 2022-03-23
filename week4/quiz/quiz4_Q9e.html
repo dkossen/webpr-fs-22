@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<script>
+
+    /* Provide a function (or lambda expression) named 'divides' such that
+    [1,2,3,4,5,6].filter(divides(3)) equals [3,6] */
+
+    const divides = x => y => y % x === 0;
+
+    // Test:
+    document.writeln([1,2,3,4,5,6].filter(divides(3)).toString() === "3,6");
+    // [1,2,3,4,5,6].filter(divides(3)).toString() === "3,6"
+
+</script>
+</body>
+</html>
