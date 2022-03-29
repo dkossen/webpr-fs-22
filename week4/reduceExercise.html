@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Tests</title>
+</head>
+<body>
+    <script>
+
+        const preOrder = (acc, cur) => [cur, ...acc];
+
+        document.writeln([1, 2, 3].reduce(preOrder, []));
+        document.writeln("<br/>");
+        document.writeln([1, 2, 3].reduce(preOrder, []) === [3, 2, 1]);
+
+    </script>
+</body>
+</html>
