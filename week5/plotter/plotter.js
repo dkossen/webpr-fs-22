@@ -8,11 +8,25 @@ function start() {
     const userFunction = document.getElementById('user_function');
     const canvas       = document.getElementById('canvas');
 
-    const makeF = () => Function("x", "return " + userFunction.value + ";");
+    // display(canvas, x => Math.sin(x)); // fixed, not considering user input
+    // console.log(userFunction.value(; // user input
 
-    userFunction.onchange = _ =>  display(canvas, makeF());
+    // const f = () => display(canvas, x => eval(userFunction.value)); // eval wird 100x aufgerufen
 
-    display(canvas, makeF());
+
+    // userFunction.onchange = _ => f(); // change on user input
+    // userFunction.onchange = f; // done: eta-reduction
+    // f(); // initial call
+
+    // improvement: function only gets called once instead of a 100
+    let f = Function("x", "return " + userFunction.value)
+    userFunction.onchange = _ => {
+        f = Function("x", "return " + userFunction.value);
+        display(canvas, f);
+    }
+
+    f();
+
 }
 
 function display(canvas, f) {
