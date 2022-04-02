@@ -19,9 +19,11 @@
     //given
     const e = {revenue: 10000, bonus: null};
 
-    let bonusFormula = "0.2";
+    // let bonusFormula = "employee.bonus = employee.revenue * 0.2"; // todo: delete after
+    let factor_ = 0.2; // todo: delete after
+    let bonusFormula = "e.bonus = e.revenue * factor_"; // todo: delete after
 
-    const bonusCalculation = x => e.revenue * eval(bonusFormula);
+    const bonusCalculation = () => eval(bonusFormula);
         // eval(bonusFormula.value));
 
     document.writeln(bonusCalculation(e));
@@ -31,7 +33,7 @@
 
     // Test
     bonusCalculation(e);
-    // document.writeln(e.bonus === e.revenue * factor_);
+    document.writeln(e.bonus === e.revenue * factor_);
     // e.bonus === e.revenue * factor_;
 
 </script>
