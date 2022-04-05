@@ -20,12 +20,27 @@
     Since we will give bonuses to many employees, do _NOT_ use the 'eval' function
     and do _NOT_ use side effects like setting surrounding variables. */
 
+    // given
+    const e = {revenue: 10000, bonus: null};
+
+    // custom setup
+    let factor_ = 0.2; // todo: delete after
+    const bonusFormula = "employee.revenue * 0.2";
+    document.writeln("bonusFormula: " + bonusFormula + "<br/>");
+
+    // task
+    const bonusCalculation = e.bonus = function(e) { "return " + bonusFormula; };
+
+    document.writeln("bonusCalculation: " + bonusCalculation + "<br/>");
+
+    // const makeF = () => Function("x", "return " + userFunction.value + ";");
+
 
     // Test
-
-    const e = {revenue: 10000, bonus: null};
     bonusCalculation(e);
-    e.bonus === e.revenue * factor_;
+    document.writeln("bonus: " + e.bonus + "<br/>");
+    document.writeln(e.bonus === e.revenue * factor_);
+    // e.bonus === e.revenue * factor_;
 
 
 </script>

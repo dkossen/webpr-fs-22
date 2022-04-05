@@ -22,16 +22,15 @@
     // let bonusFormula = "employee.bonus = employee.revenue * 0.2"; // todo: delete after
     let factor_ = 0.2; // todo: delete after
     let bonusFormula = "e.bonus = e.revenue * factor_"; // todo: delete after
+    document.writeln("bonusFormula: " + bonusFormula + "<br/>");
 
     const bonusCalculation = () => eval(bonusFormula);
-        // eval(bonusFormula.value));
 
-    document.writeln(bonusCalculation(e));
-    document.writeln(e.bonus);
-    document.writeln(e.revenue * factor_); // todo: create 'factor_' in function: how?
+    document.writeln("bonusCalculation(e): " + bonusCalculation(e) + "<br/>");
+    document.writeln("e.bonus: " + e.bonus + "<br/>");
+    document.writeln("e.revenue * factor_ : " + e.revenue * factor_ + "<br/>"); // todo: create 'factor_' in function: how?
 
-
-    // Test
+    // Test - given
     bonusCalculation(e);
     document.writeln(e.bonus === e.revenue * factor_);
     // e.bonus === e.revenue * factor_;
