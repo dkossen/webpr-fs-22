@@ -10,17 +10,32 @@
 //   turn()          // cash in your win, update fallback position for next turn
 //
 
-const Player = name => {
+function Player(name) {
+    let playerName = name;
     let fallbackIndex = 0;
     let progressIndex = 0;
     return {
-        getFallbackIndex : () => fallbackIndex,
-        getProgressIndex : () => progressIndex,
-        proceed          : stride => progressIndex += stride,
-        turn             : () => fallbackIndex = progressIndex,
-        fallback         : () => progressIndex = fallbackIndex
+        getName: function() {
+            return playerName;
+        },
+        proceed: function(stride) {
+            return progressIndex += stride;
+        },
+        fallback: function() {
+            return progressIndex = fallbackIndex;
+        },
+        turn: function() {
+            return fallbackIndex = progressIndex;
+        },
+        getFallbackIndex: function() {
+            return fallbackIndex;
+        },
+        getProgressIndex: function() {
+            return progressIndex;
+        }
     }
 }
+
 
 function start() {
     const fields = document.getElementById('fields');
@@ -62,3 +77,4 @@ function display() {
 }
 
 player = Player("One");
+// playerTwo = Player("Two");
