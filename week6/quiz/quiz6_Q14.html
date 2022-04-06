@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<script>
+
+    //same construction for all choices
+    const Person = name => {
+        let age = 0;
+        return {
+            getAge: ()       => age,
+            setAge: newAge   => age = newAge,
+            getName: ()      => name,
+            setName: newName => name = newName
+        }
+    };
+
+    ///
+
+    // const me = Person("Myself");
+    // me.setAge(50);
+    // document.writeln(me.getAge() === 50); // true
+
+    ///
+
+    // const me = Person("Myself");
+    // me.setName("Sherlock");
+    // document.writeln(me.getName() === "Sherlock"); // true
+
+    ///
+
+    // todo check: same code as above?
+    // const me = Person("Myself");
+    // me.setName("Sherlock");
+    // document.writeln(me.getName() === "Sherlock"); // true
+
+    ///
+
+    const me = Person("Myself");
+    me.name = "***";
+    document.writeln(me.getName() === "***"); // false
+
+
+</script>
+</body>
+</html>
