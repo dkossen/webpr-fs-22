@@ -16,22 +16,22 @@
     by using the user-provided bonusFormula.
     Do _NOT_ use the "Function" class. */
 
-    //given
-    const e = {revenue: 10000, bonus: null};
-
     // let bonusFormula = "employee.bonus = employee.revenue * 0.2"; // todo: delete after
     let factor_ = 0.2; // todo: delete after
-    let bonusFormula = "e.bonus = e.revenue * factor_"; // todo: delete after
-    document.writeln("bonusFormula: " + bonusFormula + "<br/>");
+    let bonusFormula = "employee.bonus = employee.revenue * 0.2"; // todo: delete after
+    // document.writeln("bonusFormula: " + bonusFormula + "<br/>");
 
-    const bonusCalculation = () => eval(bonusFormula);
+    const bonusCalculation = employee => employee.bonus = eval(bonusFormula);
+
+    //given
+    const e = {revenue: 10000, bonus: null};
+    // Test - given
+    bonusCalculation(e);
 
     document.writeln("bonusCalculation(e): " + bonusCalculation(e) + "<br/>");
     document.writeln("e.bonus: " + e.bonus + "<br/>");
-    document.writeln("e.revenue * factor_ : " + e.revenue * factor_ + "<br/>"); // todo: create 'factor_' in function: how?
+    document.writeln("e.revenue * factor_ : " + e.revenue * factor_ + "<br/>");
 
-    // Test - given
-    bonusCalculation(e);
     document.writeln(e.bonus === e.revenue * factor_);
     // e.bonus === e.revenue * factor_;
 
