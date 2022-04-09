@@ -10,32 +10,20 @@
 //   turn()          // cash in your win, update fallback position for next turn
 //
 
-function Player(name) {
-    let playerName = name;
+const Player = name => {
     let fallbackIndex = 0;
     let progressIndex = 0;
+    let hasTurn = true;
     return {
-        getName: function() {
-            return playerName;
-        },
-        proceed: function(stride) {
-            return progressIndex += stride;
-        },
-        fallback: function() {
-            return progressIndex = fallbackIndex;
-        },
-        turn: function() {
-            return fallbackIndex = progressIndex;
-        },
-        getFallbackIndex: function() {
-            return fallbackIndex;
-        },
-        getProgressIndex: function() {
-            return progressIndex;
-        }
+        getFallbackIndex : () => fallbackIndex,
+        getProgressIndex : () => progressIndex,
+        proceed          : stride => progressIndex += stride,
+        turn             : () => fallbackIndex = progressIndex,
+        fallback         : () => progressIndex = fallbackIndex,
+        changeTurn       : isTurn => hasTurn = isTurn,
+        getHasTurn       : () => hasTurn
     }
 }
-
 
 function start() {
     const fields = document.getElementById('fields');
@@ -52,16 +40,28 @@ function start() {
 function dice() {
     let stride = Math.round(1 + Math.random() * 5);
     document.getElementById('dice').innerText = ""+ stride;
-    if (stride === 3) {
+    if ((stride === 3 && player.getHasTurn()) || (player.getProgressIndex() === playerTwo.getProgressIndex() && player.getProgressIndex() !== 0)) {
         player.fallback();
-    } else {
+    } else if (player.getHasTurn()) {
         player.proceed(stride);
+    } else if ((stride === 3 && playerTwo.getHasTurn()) || (player.getProgressIndex() === playerTwo.getProgressIndex() && playerTwo.getProgressIndex() !== 0)) {
+        playerTwo.proceed(stride);
+    } else if (playerTwo.getHasTurn()) {
+        playerTwo.proceed(stride);
     }
     display();
 }
 
 function turn() {
-    player.turn();
+    if (player.getHasTurn()) {
+        player.changeTurn(false);
+        playerTwo.changeTurn(true);
+        player.turn();
+    } else {
+        playerTwo.changeTurn(false);
+        player.changeTurn(true);
+        playerTwo.turn();
+    }
     display();
 }
 
@@ -70,11 +70,18 @@ function display() {
         let field = document.getElementById("FIELD-"+i);
         field.setAttribute("CLASS", "field");
     }
+
     let fallbackfield = document.getElementById("FIELD-"+ player.getFallbackIndex());
     fallbackfield.setAttribute("CLASS", "field fallback");
     let progressfield = document.getElementById("FIELD-"+ player.getProgressIndex());
     progressfield.setAttribute("CLASS", "field progress");
+
+    let fallbackfieldTwo = document.getElementById("FIELD-"+ playerTwo.getFallbackIndex());
+    fallbackfieldTwo.setAttribute("CLASS", "field fallback-two");
+    let progressfieldTwo = document.getElementById("FIELD-"+ playerTwo.getProgressIndex());
+    progressfieldTwo.setAttribute("CLASS", "field progress-two");
+
 }
 
 player = Player("One");
-// playerTwo = Player("Two");
+playerTwo = Player("Two");
