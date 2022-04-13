@@ -39,10 +39,15 @@
 
     ///
 
-    const me = Person("Myself");
-    me.name = "***";
-    document.writeln(me.getName() === "***"); // false
+    // const me = Person("Myself");
+    // me.name = "***";
+    // document.writeln(me.getName() === "***"); // false
 
+    ///
+
+    const me = Person("Myself");
+    me.age(50);
+    document.writeln(me.getAge() === 50); //false
 
 </script>
 </body>
