@@ -4,35 +4,39 @@
 
 const Assert = () => {
     const ok = [];
+    const equals = (actual, expected) => {
+        const result = (actual === expected);
+        if (! result) {
+           console.error(`not equal! actual was '${actual}' but expected '${expected}'`);
+        }
+        ok.push(result);
+    };
     return {
-        is    : (a, b, message) => {
-            if (a === b) {
-                ok.push(true);
-            } else {
-                if (message) {
-                    console.log(message);
-                }
-                console.error("test failed! expected:" + a + " but got " + b);
-                ok.push(false);
-            }
-        },
-        getOk : () => ok
+        getOk: () => ok,
+        equals: equals,
     }
 }
 
+
+/**
+ * providing a scope and name for a test callback that fills the array
+ * of boolean checks
+ * @param {string} origin
+ * @param {function(Assert): void} callback
+ */
 const test = (origin, callback) => {
-    // make the ok array
-    const assert = Assert();
-    // pushed booleans into the array
-    callback(assert);
-    // reporting the result
-    report(origin, assert.getOk());
-}
+    const assert = Assert();      //    das ok anlegen
+    callback(assert);       //    das ok befüllen
+    report(origin, assert.getOk()); //    report mit name und ok aufrufen
+};
 
 
-
-// test result report
-// report :: String, [Bool] -> DOM ()
+/**
+ * report :: String, [Bool] -> DOM ()
+ * Report reports the list of boolean checks
+ * @param {string}      origin: where the reported tests come from
+ * @param { [boolean] } ok:     list of applied checks
+ */
 function report(origin, ok) {
     const extend = 20;
     if ( ok.every( elem => elem) ) {
