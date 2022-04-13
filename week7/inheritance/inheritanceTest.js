@@ -24,7 +24,7 @@
 
     class Student extends Person {
         mustDo() {
-            return "fill quiz"
+            return "fill quiz";
         }
     }
 
