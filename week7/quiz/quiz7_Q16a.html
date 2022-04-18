@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<script>
+
+    // Assignment: Function composition
+
+    /* JavaScript is functional and functional languages should provide function composition.
+   Let's assume we have functions like
+    const inc    = x => x + 1;
+    const double = x => x * 2;
+   Provide a general function 'then' that can combine _any_ such functions such that
+    inc.then(double).then(double)
+   can be used like
+    inc.then(double).then(double) (1) === 8 // note: ((1 + 1)*2)*2 = (2*2)*2 = 4*2 = 8
+
+   Note: you cannot assume what the functions are actually doing.
+   It must work for all functions! */
+
+    // todo: test
+
+    // prep
+    const add_ = 3;
+    const factor_ = 4;
+    const add = x => x + add_;
+    const mult = x => x * factor_;
+
+    /*
+    Function.prototype.then = function(callback) {
+        console.log(this);
+        console.log(callback);
+        return this.call(this, callback);
+    }
+    */
+
+    Function.prototype.then = function(fun2) {
+        const fun1 = this;
+        return function(res) {
+            return fun2(fun1(res))
+        }
+    }
+
+    // Test:
+    document.writeln(add.then(mult).then(add) (1));
+    // ((1+1)*2)+1 = 5 //// ((1+3)*4)+3 = 19
+    document.writeln(add.then(mult).then(add) (1) === (1 + add_) * factor_ + add_);
+    // add.then(mult).then(add) (1) === (1 + add_) * factor_ + add_
+
+</script>
+</body>
+</html>
