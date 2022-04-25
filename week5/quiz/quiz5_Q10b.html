@@ -24,24 +24,20 @@
     const e = {revenue: 10000, bonus: null};
 
     // custom setup
-    let factor_ = 0.2; // todo: delete after
+    let factor_ = 0.2;
     const bonusFormula = "employee.revenue * 0.2";
     document.writeln("bonusFormula: " + bonusFormula + "<br/>");
 
     // task
-    const bonusCalculation = e.bonus = function(e) { "return " + bonusFormula; };
+    const bonusCalculation = Function("employee", "return employee.bonus = " + bonusFormula + ";");
 
     document.writeln("bonusCalculation: " + bonusCalculation + "<br/>");
-
-    // const makeF = () => Function("x", "return " + userFunction.value + ";");
-
 
     // Test
     bonusCalculation(e);
     document.writeln("bonus: " + e.bonus + "<br/>");
     document.writeln(e.bonus === e.revenue * factor_);
     // e.bonus === e.revenue * factor_;
-
 
 </script>
 </body>
