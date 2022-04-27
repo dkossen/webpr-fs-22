@@ -2,32 +2,55 @@
 
 // find a solution for suite, test, assert
 
-const Assert = () => {
-    const ok = [];
-    return {
-        is    : (a, b, message) => {
-            if (a === b) {
-                ok.push(true);
-            } else {
-                if (message) {
-                    console.log(message);
-                }
-                console.error("test failed! expected:" + a + " but got " + b);
-                ok.push(false);
-            }
-        },
-        getOk : () => ok
+const Assert = ok => {
+    const equals = (actual, expected) => {
+        const result = actual === expected; // create local variable: 'ctrl + alt + v'
+        ok.push(result);
+        if ( false === result ) { // yoda conditional (avoiding errors by using a constant as a left hand)
+            console.error("failed: got", actual, "expected", expected);
+            // debugger (use debugger in browser window)
+        }
     }
+    return { equals }  // 'ctrl + shift + j' um Zeilen zu kürzen/joinen
 }
 
+/**
+ * Make a local scope in which to execute and report assertions.
+ */
 const test = (origin, callback) => {
-    // make the ok array
-    const assert = Assert();
-    // pushed booleans into the array
-    callback(assert);
-    // reporting the result
-    report(origin, assert.getOk());
+    const ok = [];      // array of bools anlegen (die assert Ergebnisse)
+    callback(Assert(ok));       // push the assertions
+    report(origin, ok);
 }
+
+
+
+// const Assert = () => {
+//     const ok = [];
+//     return {
+//         is    : (a, b, message) => {
+//             if (a === b) {
+//                 ok.push(true);
+//             } else {
+//                 if (message) {
+//                     console.log(message);
+//                 }
+//                 console.error("test failed! expected:" + a + " but got " + b);
+//                 ok.push(false);
+//             }
+//         },
+//         getOk : () => ok
+//     }
+// }
+
+// const test = (origin, callback) => {
+//     // make the ok array
+//     const assert = Assert();
+//     // pushed booleans into the array
+//     callback(assert);
+//     // reporting the result
+//     report(origin, assert.getOk());
+// }
 
 
 
