@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<script>
+
+    // Callback functions used well and badly (6 pt)
+
+    // _1
+
+    // function handle(callback) {
+    //     const result = [];
+    //     callback(result);
+    //     return result;
+    // }
+    //
+    // document.writeln( handle( it => it.push(1) ).length === 1 ) // true
+
+    /////
+
+    // function handle(count, callback) {
+    //     const result = [];
+    //     for (let i=0; i < count; i++) {
+    //         callback( result );
+    //     }
+    //     return result;
+    // }
+    //
+    // document.writeln( handle(3, it => it.push(1) ).length === 3 ); // true
+
+    /////
+
+    // function handle(callback) {
+    //     const result = [];
+    //     callback(result);
+    //     return result;
+    // }
+    //
+    // let it = [];
+    // document.writeln( handle( it => it.push(1) ).length === 1 ) // true;
+    
+    /////
+
+    // _2
+
+    // function handle(callback) {
+    //     const result = [];
+    //     callback(result);
+    //     return result;
+    // }
+    //
+    // document.writeln( handle( it.push(1) ).length === 1 ) // ReferenceError: it is not defined
+
+    /////
+
+    // function handle(callback) {
+    //     const result = [];
+    //     callback(result);
+    //     return result;
+    // }
+    //
+    // let it = [];
+    // document.writeln( handle( it.push(1) ).length === 1 ) // TypeError: callback is not a function
+
+    /////
+
+    // function handle(callback) {
+    //     const result = [];
+    //     callback(result);
+    //     return result;
+    // }
+    //
+    // document.writeln( handle( () => it.push(1) ).length === 1 ) // ReferenceError: it is not defined
+
+    /////
+
+    // _3
+
+    // function handle(callback) {
+    //     const result = [];
+    //     callback(result);
+    //     return result;
+    // }
+    //
+    // let it = [];
+    // document.writeln( handle( () => it.push(1) ).length === 1 ) // false (length is 0)
+
+    /////
+
+    // function handle(callback) {
+    //     return callback( [] );
+    // }
+    //
+    // document.writeln( handle( it => { it.push(1); return it; } ).length === 1 ) // true
+
+    /////
+
+    // function handle(callback) {
+    //     const result = [];
+    //     return callback( result );
+    // }
+    //
+    // document.writeln( handle( () => [1] ).length === 1 ) // true
+
+    /////
+
+    // function handle(callback) {
+    //     const result = [];
+    //     callback( result );
+    //     return result;
+    // }
+    //
+    // document.writeln( handle( () => [1] ).length === 1 ) // false (length is 0)
+
+    /////
+
+    // _4
+
+    // function handle(callback) {
+    //     const result = [];
+    //     callback( [] );
+    //     return result;
+    // }
+    //
+    // document.writeln( handle( it => it.push(1) ).length === 1 ) // false (length is 0)
+
+    /////
+
+    // function handle(callback) {
+    //     const result = [];
+    //     callback();
+    //     callback(result);
+    //     callback(result);
+    //     return result;
+    // }
+    //
+    // document.writeln( handle( it => it.push(1) ).length === 2 ) // true
+
+</script>
+</body>
+</html>

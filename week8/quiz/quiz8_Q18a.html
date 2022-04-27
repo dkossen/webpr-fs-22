@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<script>
+
+    /* Provide a function 'failSafe' that - in curried style - takes
+     - a default value
+     - a callback function
+     - an argument to the callback function
+     that returns whatever the callback function returns given its argument
+     or the default value if the callback function throws an Error.
+
+     Note: see how the tests make use of failSafe. */
+
+    // todo: try
+
+    const failSafe = def => callback => arg => {
+        try {
+            return callback(arg);
+        }
+        catch {
+            return def;
+        }
+    };
+
+     // Test:
+    const doError    = x => { throw new Error() };
+    const errorCount = failSafe (1) (doError);
+
+    document.write("1: ")
+    document.writeln(failSafe (false) (x=>x) (true));
+    document.write("<br/> 2: ");
+    document.writeln(failSafe (true) (doError));
+    document.write("<br/> 3: ");
+    document.writeln(errorCount(null) === 1);
+    document.write("<br/> 4: ");
+    document.writeln(failSafe (false) (x=>x) (true) && failSafe (true) (doError) (null) && errorCount(null) === 1);
+    // failSafe (false) (x=>x) (true) && failSafe (true) (doError) (null) && errorCount(null) === 1
+
+</script>
+</body>
+</html>

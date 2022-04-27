@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<script>
+
+    // Object encoding without class, this, or new (5 pt)
+
+    /////
+
+    // function Todo(text, done) {
+    //     const check = () => done = true;
+    //     return {
+    //         getText: () => text,
+    //         isDone: () => done,
+    //         check: check
+    //     }
+    // }
+    // let todo = Todo("buy milk", false);
+    // todo.check();
+    // document.writeln(todo.isDone()); // true
+
+    /////
+
+    // function Todo(text) {
+    //     let done = false;
+    //     const check = () => this.done = true;
+    //     return {
+    //         getText: () => text,
+    //         isDone: () => done,
+    //         check: check
+    //     }
+    // }
+    // let todo = Todo("buy milk");
+    // todo.check();
+    // document.writeln(todo.isDone()); // false
+
+    /////
+
+    // _2
+
+    // function Todo(text) {
+    //     let done = false;
+    //     const check = () => done = true;
+    //     return {
+    //         getText: () => text,
+    //         isDone: () => done,
+    //         check: check
+    //     }
+    // }
+    // let todo = Todo("buy milk");
+    // todo.check();
+    // document.writeln(todo.isDone()); // true
+
+    /////
+
+    // function Todo(text, done) {
+    //     function check() { done = true }
+    //     return {
+    //         getText: () => text,
+    //         isDone: () => done,
+    //         check: check
+    //     }
+    // }
+    // let todo = Todo("buy milk", false);
+    // todo.check();
+    // document.writeln(todo.isDone()); // true
+
+    /////
+
+    // _3
+
+    // function Todo(text) {
+    //     let done = false;
+    //     return {
+    //         getText: () => text,
+    //         isDone: () => done,
+    //         check: () => done = true
+    //     }
+    // }
+    // let todo = Todo("buy milk");
+    // todo.check();
+    // document.writeln(todo.isDone()); // true
+
+    /////
+
+    // function Todo(text) {
+    //     let done = false;
+    //     const check = () => done = true;
+    //     return {
+    //         getText: () => text,
+    //         isDone: () => done,
+    //         check: check
+    //     }
+    // }
+    // let todo = new Todo("buy milk");
+    // todo.check();
+    // document.writeln(todo.isDone()); // true
+
+    /////
+
+    // _4
+
+    // function Todo(text) {
+    //     let done = false;
+    //     return {
+    //         getText: () => text,
+    //         isDone: () => done,
+    //         check: done = true
+    //     }
+    // }
+    // let todo = Todo("buy milk");
+    // todo.check();
+    // document.writeln(todo.isDone()); // TypeError: todo.check is not a function
+
+    /////
+
+    // function Todo(text) {
+    //     const done = false;
+    //     return {
+    //         getText: () => text,
+    //         isDone: () => done,
+    //         check: () => done = true
+    //     }
+    // }
+    // let todo = Todo("buy milk");
+    // todo.check();
+    // document.writeln(todo.isDone()); // TypeError: assignment to constant variable ('done')
+
+</script>
+</body>
+</html>
