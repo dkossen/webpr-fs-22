@@ -7,81 +7,81 @@
 <body>
 <script>
 
-    // Prototypes and inheritance (5 pt)
+    // Prototypes and inheritance (5 pt) (5 true)
 
-    // class Person { }
-    // class Student { }
-    // const s = new Student();
-    // Object.setPrototypeOf(s, Person.prototype);
-    // document.writeln(s instanceof Student); // false
-
-    /////
-
-    // class Person {
-    //
-    // }
-    // const p = { };
-    // Object.setPrototypeOf(p, Person.prototype);
-    // document.writeln(p instanceof Person); // true
+    class Person { }
+    class Student { }
+    const s = new Student();
+    Object.setPrototypeOf(s, Person.prototype);
+    document.writeln(s instanceof Student); // false
 
     /////
 
-    // class Person { }
-    // class Student { }
-    // const s = new Student();
-    // Object.setPrototypeOf(Student.prototype, Person.prototype);
-    // document.writeln(s instanceof Person); // true
+    class Person {
+
+    }
+    const p = { };
+    Object.setPrototypeOf(p, Person.prototype);
+    document.writeln(p instanceof Person); // true
 
     /////
 
-    // class Person { }
-    // class Student extends Person {}
-    // const s = new Student();
-    //
-    // document.writeln(s instanceof Person); // true
+    class Person { }
+    class Student { }
+    const s = new Student();
+    Object.setPrototypeOf(Student.prototype, Person.prototype);
+    document.writeln(s instanceof Person); // true
 
     /////
 
-    // class Person {
-    //
-    // }
-    // const p = { };
-    // Object.setPrototypeOf(p, Person);
-    // document.writeln(p instanceof Person); // false
+    class Person { }
+    class Student extends Person {}
+    const s = new Student();
+
+    document.writeln(s instanceof Person); // true
 
     /////
 
-    // class Person { }
-    // class Student { }
-    // const s = new Student();
-    // Object.setPrototypeOf(Student, Person);
-    // document.writeln(s instanceof Person); // false
+    class Person {
+
+    }
+    const p = { };
+    Object.setPrototypeOf(p, Person);
+    document.writeln(p instanceof Person); // false
 
     /////
 
-    // class Person { }
-    // class Student { }
-    // const s = new Student();
-    // Object.setPrototypeOf(s, Student.prototype);
-    // document.writeln(s instanceof Person); // false (is instanceof Student)
+    class Person { }
+    class Student { }
+    const s = new Student();
+    Object.setPrototypeOf(Student, Person);
+    document.writeln(s instanceof Person); // false
 
     /////
 
-    // class Person {
-    //     constructor(name) {
-    //         this.name = name;
-    //     }
-    //     isCool() { return this.name.length > 3 };
-    // }
-    // const p = new Person("Dierk");
-    // document.writeln(p instanceof Person); // true
+    class Person { }
+    class Student { }
+    const s = new Student();
+    Object.setPrototypeOf(s, Student.prototype);
+    document.writeln(s instanceof Person); // false (is instanceof Student)
 
     /////
 
-    // class Person { }
-    // class Student extends Person {}
-    // const s = new Student();
-    // document.writeln(s instanceof Student); // true
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+        isCool() { return this.name.length > 3 };
+    }
+    const p = new Person("Dierk");
+    document.writeln(p instanceof Person); // true
+
+    /////
+
+    class Person { }
+    class Student extends Person {}
+    const s = new Student();
+    document.writeln(s instanceof Student); // true
 
 </script>
 </body>

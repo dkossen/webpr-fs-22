@@ -7,9 +7,9 @@
 <body>
 <script>
 
-   // ES6 classes (5pt)
+   // ES6 classes (5pt) (5 true)
 
-   /*class Person {
+   class Person {
        constructor(name) {
            this.name = name;
        }
@@ -18,11 +18,11 @@
    const p = new Person("Joe");
    p.prototype.isCool = () => true;
    document.writeln(p.isCool()); // TypeError: cannot set properties of undefined (setting 'isCool')
-    */
+
 
    /////
 
-  /* class Person {
+  class Person {
        constructor(name) {
            this.name = name;
        }
@@ -30,11 +30,10 @@
    }
    const p = new Person("Dierk");
    document.writeln(p.name === "Dierk"); // true
-   */
 
    /////
 
-   /*class Person {
+   class Person {
        constructor(name) {
            this.name = name;
        }
@@ -43,11 +42,8 @@
    const p = new Person("Dierk");
    document.writeln(p.isCool()); // true
 
-    */
-
    /////
 
-   /*
    class Person {
        constructor(name) {
            this.name = name;
@@ -57,11 +53,9 @@
 
    const p = new Person("Dierk");
    document.writeln(p.isCool()); // false
-    */
 
    /////
 
-   /*
    class Person {
        constructor(name) {
            this.name = name;
@@ -74,11 +68,9 @@
        cool: p.isCool
    };
    document.writeln(joe.cool()); // false
-    */
 
    /////
 
-   /*
    class Person {
        constructor(name) {
            this.name = name;
@@ -88,11 +80,9 @@
    const p = new Person("Joe");
    Person.prototype.isCool = () => true;
    document.writeln(p.isCool()); // true
-    */
 
    /////
 
-   /*
    class Person {
        constructor(name) {
            this.name = name;
@@ -102,18 +92,17 @@
    const p = new Person("Joe");
    p.isCool = () => true;
    document.writeln(p.isCool()); // true
-    */
 
    /////
 
-   /*
    class Person {
-       isCool() { return this.name.length > 3 };
+       isCool() {
+           return this.name.length > 3
+       };
    }
    const p = new Person();
    p.name = "Dierk";
-   document.writeln(p.isCool()); // true // todo: why?
-    */
+   document.writeln(p.isCool()); // true
 
    /////
 
@@ -125,7 +114,6 @@
    }
    const p = new Person("Dierk");
    document.writeln(p.isCool()); // Type Error: Cannot read properties of undefined (reading 'length') at Person.isCool
-
 
 </script>
 </body>

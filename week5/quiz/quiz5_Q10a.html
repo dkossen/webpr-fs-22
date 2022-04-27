@@ -8,6 +8,7 @@
 <script>
 
     // Assignment: Using 'eval()'
+
     /* Your user has entered a new business rule on how to calculate this year's bonuses.
     He entered a formula through a web form and it is available through the _string_ variable 'bonusFormula'.
     The formula refers to the employee as 'employee' like in 'employee.bonus = employee.revenue * 0.2'
@@ -16,15 +17,15 @@
     by using the user-provided bonusFormula.
     Do _NOT_ use the "Function" class. */
 
-    // let bonusFormula = "employee.bonus = employee.revenue * 0.2"; // todo: delete after
-    let factor_ = 0.2; // todo: delete after
-    let bonusFormula = "employee.bonus = employee.revenue * 0.2"; // todo: delete after
-    // document.writeln("bonusFormula: " + bonusFormula + "<br/>");
+    // setup
+    let factor_ = 0.2;
+    let bonusFormula = "employee.bonus = employee.revenue * 0.2";
 
     const bonusCalculation = employee => employee.bonus = eval(bonusFormula);
 
-    //given
+    // given
     const e = {revenue: 10000, bonus: null};
+
     // Test - given
     bonusCalculation(e);
 

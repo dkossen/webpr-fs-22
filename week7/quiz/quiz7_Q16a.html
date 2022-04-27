@@ -40,7 +40,7 @@
     Function.prototype.then = function(fun2) {
         const fun1 = this;
         return function(res) {
-            return fun2(fun1(res))
+            return fun2(fun1(res));
         }
     }
 
