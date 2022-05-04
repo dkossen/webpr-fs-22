@@ -10,7 +10,6 @@
     // Assignment: Using Observable
 
     // Given the code
-
     const Observable = value => {
         const listeners = [];
         return {
@@ -31,19 +30,28 @@
     let sum = 0;
     const trackable = Observable(0);
 
-    // Use 'trackable' such that it keeps track of the sum of all values that have been set to it in 'sum'. */
+
+    // Use 'trackable' such that it keeps track of the sum of all values that have been set to it in 'sum'.
+    // todo: check
+    trackable.onChange( _ => sum += trackable.getValue());
 
 
-    // todo
-
+    // Custom setup:
+    const x_ = 1;
+    const y_ = 3;
+    const z_ = 5;
 
     // Tests:
     trackable.setValue(x_); // values x_, y_, z_ are given. Do not override.
     trackable.setValue(y_);
     trackable.setValue(z_);
 
-    trackable.getValue() === z_ && sum === x_ + y_ + z_
+    document.writeln(sum); document.writeln("<br/>");
 
+    document.writeln(trackable.getValue() === z_);
+    document.writeln(sum === x_ + y_ + z_); // should be 9 (1+3+5)
+    document.writeln(trackable.getValue() === z_ && sum === x_ + y_ + z_);
+    // trackable.getValue() === z_ && sum === x_ + y_ + z_
 
 </script>
 </body>
