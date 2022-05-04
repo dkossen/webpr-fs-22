@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<script>
+
+    // Observable values (6 pts)
+
+    // same for all choices:
+    const Observable = value => {
+        const listeners = [];
+        return {
+            onChange: callback => listeners.push(callback),
+            getValue: ()       => value,
+            setValue: val    => {
+                if ( value === val) return;
+                value = val;
+                listeners.forEach(listener => listener(val));
+            }
+        }
+    };
+
+    // _1
+
+    // const color = Observable('white');
+    // color.value = 'black';
+    //
+    // document.writeln( color.getValue() === 'black' ); // false: 'color.value' is not a valid method call in the Observable constructor
+
+    /////
+
+    const color = Observable('white');
+    color.setValue('black');
+
+    document.writeln( color.getValue() === 'black' ); // true
+
+    /////
+
+    // _2
+
+    const color = Observable('white');
+    let observed = null;
+    color.onChange( val => observed = val);
+
+    color.setValue('black');
+
+    document.writeln( observed === color.getValue() ); // true
+
+    //////
+
+    const color = Observable('white');
+    let updateCount = 0;
+    color.onChange( _ => updateCount++);
+
+    color.setValue('black');
+    color.setValue('white');
+
+    document.writeln( updateCount === 2 ); // true
+
+    /////
+
+    // _3
+
+    const color = Observable('white');
+
+    document.writeln( color.getValue() === 'white' ); // true
+
+    /////
+
+    const color = Observable('white');
+    let updateCount = 0;
+    color.onChange( _ => updateCount++);
+
+    color.setValue('black');
+
+    document.writeln( updateCount === 1 ); // true
+
+    /////
+
+    // _4
+
+    const color = Observable('white');
+    let observed = color.getValue();
+    color.onChange( val => observed = val);
+
+    document.writeln( observed === color.getValue() ); // true
+
+    /////
+
+    // const color = Observable('white');
+    // let updateCount = 0;
+    // const updateListener = val => updateCount++;
+    //
+    // color.setValue('black');
+    //
+    // document.writeln( updateCount === 1 ); // false: 'updateListener' is never called
+
+    /////
+
+    // _5
+
+    // const color = Observable('white');
+    // let observed = null;
+    // color.onChange( val => observed = val);
+    //
+    // document.writeln( observed === color.getValue() ); // false: observed === null (there was no change)
+
+    /////
+
+    // const color = Observable('white');
+    // let updateCount = 0;
+    // color.onChange( _ => updateCount++);
+    //
+    // color.setValue('white'); // attention, same value!
+    //
+    // document.writeln( updateCount === 1 ); // false: the value did not change because it's the same
+
+
+</script>
+</body>
+</html>
