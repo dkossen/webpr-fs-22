@@ -5,15 +5,31 @@
     <title>Todos</title>
     <style>
         body {
-            background: burlywood;
+            background: #FFFFFF;
             font-family: "Helvetica Neue", "sans-serif";
+            margin: 20px;
         }
         div {
             padding-left: 1em;
         }
+        button {
+            background-color: #BDD358;
+            padding: 6px 10px;
+            margin-bottom: 20px;
+            max-height: 30px;
+            border: none;
+        }
         #todoContainer label {
             display: none;
         }
+        #statsContainer {
+            border: 2px solid #BDD358;
+            padding: 10px;
+            margin: 20px 0;
+            max-width: 180px;
+        }
+
+
     </style>
 </head>
 <body onload="startTodo()">
@@ -25,8 +41,10 @@
     <tbody id="todoContainer"></tbody>
 </table>
 
-<div>Number of Tasks: <span id="numberOfTasks">0</span></div>
-<div>Open Tasks: <span id="openTasks">0</span></div>
+<div id="statsContainer">
+    <div>Number of Tasks: <span id="numberOfTasks">0</span></div>
+    <div>Open Tasks: <span id="openTasks">0</span></div>
+</div>
 
 
 <script src="todo.js"></script>

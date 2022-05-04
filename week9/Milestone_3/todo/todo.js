@@ -86,4 +86,3 @@ const TodoView = (rootElement, numberOfTasksElement, numberOfOpenTasksElement) =
     }
 };
 
-

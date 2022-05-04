@@ -52,7 +52,7 @@ const TodoItemsView = (todoController, rootElement) => {
         deleteButton.onclick    = _ => todoController.removeTodo(todo);
 
         todoController.onTodoRemove( removedTodo => {
-            if (removedTodo !== todo) return; // guard clause
+            if (removedTodo !== todo) return;
             rootElement.removeChild(inputElement);
             rootElement.removeChild(deleteButton);
             rootElement.removeChild(checkboxElement);
@@ -94,5 +94,4 @@ const TodoOpenView = (todoController, numberOfOpenTasksElement) => {
     });
     todoController.onTodoRemove(render);
 };
-
 
