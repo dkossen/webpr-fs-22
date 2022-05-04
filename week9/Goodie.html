@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Goodie </title>
+</head>
+<body>
+
+<h1>Goodie</h1>
+
+<pre>
+
+<script>
+
+    // Function with generics use
+    /**
+     * identity
+     * @function
+     * @template T
+     * @param { T } x
+     * @return T
+     */
+    const id = x => x;
+
+    // Function that only allows strings
+    /**
+     * logs to the console
+     * @function
+     * @param { !String } message - what to print to the console, mandatory
+     * @return void
+     * @example
+     *  log("Hallo");
+     */
+
+    const log = message => console.log(message);
+
+    log("hallo");
+    log(12);
+    log();
+
+    log(id("Hi"));
+    id(1);
+
+</script>
+
+</pre>
+
+</body>
+</html>
