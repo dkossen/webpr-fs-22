@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<script>
+
+    // Promise (8 Pts)
+
+    // 1
+
+    // const idPromise = x => new Promise( resolve => resolve(x));
+    //
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromise(x);
+    // };
+    // const filterEven = n => {
+    //     if (n % 2 === 0) return n;
+    //     else throw Error("not even")
+    // };
+    //
+    // idPromise(1)
+    //     .then( writer )
+    //     .then( filterEven )
+    //     .then( writer )
+    //     .catch(err => {} /* do nothing */ );
+
+    // prints: '1' --> "shows more than '1'": false
+
+    /////
+
+    // const idPromise = x => new Promise( resolve => resolve(x));
+    //
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromise(x);
+    // };
+    // const filterEven = n => n % 2 === 0 ? n : undefined;
+    //
+    // idPromise(1)
+    //     .then( writer )
+    //     .then( filterEven )
+    //     .then( writer );
+
+    // prints: '1 undefined' --> "shows an error in the console": false
+
+    /////
+
+    const idPromise = x => new Promise( resolve => resolve(x));
+
+    idPromise(1)
+        .then( it => document.write(it));
+
+    // prints: '1' --> "shows '1'": true
+
+    /////
+
+    // 2
+
+    const idPromise = x => new Promise( resolve => resolve(x));
+
+    const writer = x => {
+        document.writeln(x);
+        return idPromise(x);
+    };
+    const filterEven = n => {
+        if (n % 2 === 0) return n;
+        else throw Error("now even")
+    };
+
+    idPromise(1)
+        .then( writer )
+        .then( filterEven )
+        .then( writer )
+        .catch(err => {} /* do nothing */ );
+
+    // prints '1' --> "shows only '1'": true
+
+    /////
+
+    const idPromise = x => new Promise( resolve => resolve(x));
+
+    const writer = x => {
+        document.writeln(x);
+        return idPromise(x);
+    };
+
+    idPromise(1)
+        .then( writer )
+        .then( it => it + 1)
+        .then( writer );
+
+    // prints '1 2' --> "shows '1 2'": true
+
+    /////
+
+    // const idPromise = x => new Promise( resolve => resolve(x));
+    //
+    // document.write(idPromise(1));
+
+    // prints '[object Promise] --> "shows '1'": false
+
+    /////
+
+    // 3
+
+    const idPromise = x => new Promise( resolve => resolve(x));
+
+    const writer = x => {
+        document.writeln(x);
+        return idPromise(x);
+    };
+    const inc        = n => n + 1;
+    const filterEven = n => n % 2 === 0 ? n : undefined;
+
+    idPromise(1)
+        .then( writer )
+        .then( inc )
+        .then( writer )
+        .then( filterEven )
+        .then( writer)
+
+    // prints '1 2 2' --> "shows '1 2 2'": true
+
+    /////
+
+    const idPromise = x => new Promise( resolve => resolve(x));
+
+    idPromise(1)
+        .then( it => { document.writeln(it); return idPromise(it); } )
+        .then( it => document.writeln(it));
+
+    // prints '1 1' --> "shows '1 1'": true
+
+    /////
+
+    const idPromise = x => new Promise( resolve => resolve(x));
+
+    const writer = x => {
+        document.writeln(x);
+        return idPromise(x);
+    };
+    const filterEven = n => n % 2 === 0 ? n : undefined;
+
+    idPromise(1)
+        .then( writer )
+        .then( filterEven )
+        .then( writer);
+
+    // prints '1 undefined' --> "shows '1 undefined'": true
+
+    /////
+
+    // 4
+
+    // const idPromise = x => new Promise( resolve => resolve(x));
+    //
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromise(x);
+    // };
+    //
+    // idPromise(1)
+    //     .then( writer )
+    //     .then( it => it + 1)
+    //     .then ( writer );
+
+    // prints '1 2' --> "shows '1 1'": false
+
+    /////
+
+    // const idPromise = x => new Promise( resolve => resolve(x));
+    //
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromise(x);
+    // };
+    // const filterEven = n => n % 2 === 0 ? n : undefined;
+    //
+    // idPromise(1)
+    //     .then( writer )
+    //     .then( filterEven )
+    //     .then ( writer );
+
+    // prints '1 undefined' --> "shows '1'": false
+
+    /////
+
+    // const idPromise = x => new Promise( resolve => resolve(x));
+    //
+    // idPromise(1)
+    //     .then( it => it)
+    //     .then( it => document.writeln(it));
+
+    // prints '1' --> "shows '1 1'": false
+
+    /////
+
+    // 5
+
+    // const idPromise = x => new Promise( resolve => resolve(x));
+    //
+    // idPromise(1)
+    //     .then( it => document.writeln(it))
+    //     .then( it => document.writeln(it));
+
+    // prints '1 undefined' --> "shows '1 1'": false
+
+    /////
+
+    const idPromise = x => new Promise( resolve => resolve(x));
+
+    const writer = x => {
+        document.writeln(x);
+        return idPromise(x);
+    };
+
+    idPromise(1)
+        .then( writer )
+        .then( it => document.writeln(it));
+
+    // prints '1 1' --> "shows '1 1'": true
+
+    /////
+
+    const idPromise = x => new Promise( resolve => resolve(x));
+
+    idPromise(1)
+        .then( it => { document.writeln(it); return it; } ) // auto promotion
+        .then( it => document.writeln(it));
+
+    // prints '1 1' --> "shows '1 1'": true
+
+
+</script>
+</body>
+</html>
