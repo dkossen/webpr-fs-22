@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> All Tests </title>
+    <script src="util/test.js"></script>
+</head>
+<body>
+
+<h1>All Tests in HtmlJs</h1>
+
+<pre>
+
+<script>
+
+    const testNames = [
+        'util',
+        'dataflow' // , 'excel'  // uncomment to run excel tests
+    ];
+
+    testNames.forEach( testName => {
+
+
+        document.write(`<script src="${testName}/${testName}.js"></s`+'cript>'); // dirty trick of the day
+        document.write(`<script src="${testName}/${testName}Test.js"></s`+'cript>');
+
+
+    });
+
+    document.writeln("\nCheck possible 'compile' errors in the console .");
+
+    /**
+     * Logs a {@link String} message to the console.
+     * @param { String | Number } message - aslk aölskfj öalksdjf
+     * @return void
+     */
+    const logString = message => console.log(message);
+
+    /**
+     * @template T
+     * @param { T } x
+     * @return T
+     */
+    const myId = x => x;
+
+
+    logString( myId("Hi"));
+    logString( myId(1) );
+    // logString(); // will not typecheck
+
+
+</script>
+
+</pre>
+
+</body>
+</html>
