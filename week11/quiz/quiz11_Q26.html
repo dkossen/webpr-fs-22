@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+
+<script src="../observable/observable.js"></script>
+
+<script>
+
+    // Scheduler (4 Pts)
+    // Scheduler as defined in the lecture
+
+    // 1
+
+    let state = [0];
+
+    const scheduler = Scheduler();
+    scheduler.add(ok => {
+        setTimeout(_ => {
+            state.push(1);
+            ok();
+        }, 100)
+    });
+    scheduler.add(ok => {
+        state.push(2);
+        ok();
+    });
+    scheduler.add(ok => {
+        document.writeln(state);
+        ok();
+    });
+
+    // prints: 0,1,2 --> "Shows '0,1,2'": true
+
+    /////
+
+    // let state = [0];
+    //
+    // const scheduler = Scheduler();
+    // scheduler.add(ok => {
+    //     setTimeout(_ => {
+    //         state.push(1);
+    //         ok();
+    //     }, 100)
+    // });
+    // scheduler.add(ok => {
+    //     state.push(2);
+    //     ok();
+    // });
+    // scheduler.add(ok => {
+    //     document.writeln(state);
+    //     ok();
+    // });
+
+    // prints: 0,1,2 --> "Shows '0'": false
+
+    /////
+
+    // 2
+
+    // let state = [0];
+    //
+    // const scheduler = Scheduler();
+    // scheduler.add(ok => {
+    //     setTimeout(_ => {
+    //         state.push(1);
+    //         ok();
+    //     }, 100)
+    // });
+    // scheduler.add(ok => {
+    //     state.push(2);
+    //     ok();
+    // });
+    // scheduler.add(ok => {
+    //     document.writeln(state);
+    //     ok();
+    // });
+
+    // prints: 0,1,2 --> "Shows '0,1'": false
+
+    /////
+
+    // let state = [0];
+    //
+    // const scheduler = Scheduler();
+    // scheduler.add(ok => {
+    //     setTimeout(_ => {
+    //         state.push(1);
+    //         ok();
+    //     }, 100)
+    // });
+    // scheduler.add(ok => {
+    //     state.push(2);
+    //     ok();
+    // });
+    // scheduler.add(ok => {
+    //     document.writeln(state);
+    //     ok();
+    // });
+
+    // prints: 0,1,2 --> "Shows '0,2'": false
+
+    /////
+
+    // 3
+
+    // let state = [0];
+    //
+    // const scheduler = Scheduler();
+    // scheduler.add(ok => {
+    //     setTimeout(_ => {
+    //         state.push(1);
+    //         ok();
+    //     }, 100)
+    // });
+    // scheduler.add(ok => {
+    //     state.push(2);
+    //     ok();
+    // });
+    // document.writeln(state);
+
+    // prints: 0 --> "Shows '0,2'": false
+
+    /////
+
+    // let state = [0];
+    //
+    // const scheduler = Scheduler();
+    // scheduler.add(ok => {
+    //     setTimeout(_ => {
+    //         state.push(1);
+    //         ok();
+    //     }, 100)
+    // });
+    // scheduler.add(ok => {
+    //     state.push(2);
+    //     ok();
+    // });
+    // document.writeln(state);
+
+    // prints: 0 --> "Shows '0,1,2'": false
+
+    /////
+
+    // 4
+
+    // let state = 3;
+    //
+    // const scheduler = Scheduler();
+    // scheduler.add(ok => {
+    //     setTimeout(_ => {
+    //         state = state - 2;
+    //         ok();
+    //     }, 100)
+    // });
+    // scheduler.add(ok => {
+    //     state = state - 1;
+    //     ok();
+    // });
+    // scheduler.add(ok => {
+    //     document.writeln(state);
+    //     ok();
+    // });
+
+    // 3 - 1 - 2 = 0
+
+    // prints: 0 -->
+    // "Might show '0' but might just as well show nothing or '3' or '1'":
+    // false
+
+    /////
+
+    // let state = [0];
+    //
+    // const scheduler = Scheduler();
+    // scheduler.add(ok => {
+    //     setTimeout(_ => {
+    //         state.push(1);
+    //         ok();
+    //     }, 100)
+    // });
+    // scheduler.add(ok => {
+    //     state.push(2);
+    //     ok();
+    // });
+    // document.writeln(state);
+
+    // prints: 0 --> "Shows '0,1'": false
+
+    /////
+
+    // 5
+
+    let state = [0];
+
+    const scheduler = Scheduler();
+    scheduler.add(ok => {
+        setTimeout(_ => {
+            state.push(1);
+            ok();
+        }, 100)
+    });
+    scheduler.add(ok => {
+        state.push(2);
+        ok();
+    });
+    document.writeln(state);
+
+    // prints: 0 --> "Shows '0'": true
+
+    /////
+
+    let state = 3;
+
+    const scheduler = Scheduler();
+    scheduler.add(ok => {
+        setTimeout(_ => {
+            state = state - 2;
+            ok();
+        }, 100)
+    });
+    scheduler.add(ok => {
+        state = state - 1;
+        ok();
+    });
+    scheduler.add(ok => {
+        console.log(state);
+        ok();
+    });
+    console.log('x');
+
+    // logs: 'x' and '0' --> "Logs 'x' and '0'": true
+
+    /////
+
+    // 6
+
+    let state = 3;
+
+    const scheduler = Scheduler();
+    scheduler.add(ok => {
+        setTimeout(_ => {
+            state = state - 2;
+            ok();
+        }, 100)
+    });
+    scheduler.add(ok => {
+        state = state - 1;
+        ok();
+    });
+    scheduler.add(ok => {
+        document.writeln(state);
+        ok();
+    });
+
+    // prints: --> 0
+    // "Shows '0' eventually and no other value": true
+
+
+</script>
+</body>
+</html>

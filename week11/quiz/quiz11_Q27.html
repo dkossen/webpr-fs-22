@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+
+<script src="../dataflow/dataflow.js"></script>
+
+<script>
+
+    // The JavaScript Module System (11 Pts)
+    // DataFlowVariable as defined in the lecture
+
+    // 1
+
+    const x = DataFlowVariable(() => y() * 2); // 1 * 2 = 2
+    let   y = DataFlowVariable(() => 1);
+
+    x();
+    y = DataFlowVariable(() => 2);
+
+    document.writeln(x());
+
+    // prints: 2 --> "Shows '2'": true
+
+    /////
+
+    // const x = DataFlowVariable(() => y() * 2); // 2 * 2 = 4
+    // let   y = DataFlowVariable(() => 1);
+    //       y = DataFlowVariable(() => 2);
+    //
+    // document.writeln(x());
+
+    // prints: 4 --> "Shows '2'": false
+
+    /////
+
+    const x = DataFlowVariable(() => y() * 2); // 2 * 2 = 4
+    let   y = DataFlowVariable(() => 1);
+          y = DataFlowVariable(() => 2);
+
+    document.writeln(x());
+
+    // prints: 4 --> "Shows '4'": true
+
+    /////
+
+    // 2
+
+    const x = DataFlowVariable(() => y() * 2); // 1 * 2 = 2
+    let   y = DataFlowVariable(() => 1);
+
+    document.writeln(x());
+
+    // prints: 2 --> "Shows '2'": true
+
+    /////
+
+    // const x = DataFlowVariable(() => y() * 2); // 1 * 2 = 2
+    // let   y = DataFlowVariable(() => 1);
+    //
+    // x();
+    // y = DataFlowVariable(() => 2);
+    //
+    // document.writeln(x());
+
+    // prints: 2 --> "Shows '4'": false
+
+
+
+</script>
+</body>
+</html>
