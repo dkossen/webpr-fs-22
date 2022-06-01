@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Goodie </title>
+</head>
+<body>
+
+<h1>Goodie</h1>
+
+<pre>
+
+<script>
+
+ // Navigator
+
+ // these all do the same
+ window.navigator.mediaDevices
+ this.navigator.mediaDevices
+ navigator.mediaDevices // short-hand version
+
+ navigator.mediaDevices.enumerateDevices() // Promise {status: "pending"}
+ navigator.mediaDevices.enumerateDevices().then( x => console.log(x)); // do: eta-reduction
+ navigator.mediaDevices.enumerateDevices().then( console.log ); // array of media devices
+
+</script>
+
+</pre>
+
+</body>
+</html>
