@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Goodie </title>
+</head>
+<body>
+
+<h1>Goodie</h1>
+
+<pre>
+
+<script>
+
+    // Iterators
+    // NodeList is an iterator
+
+    document.querySelectorAll("p"); // return a NodeList
+    const elems = document.querySelectorAll("p");
+
+    const [a1, b1, c1, d1] = elems;
+
+    a1; // returns element (<p ...></p>)
+
+    [...elems]; // creates an array of the NodeList elements
+
+    // iterate through all p objects in elems
+    for (let p of elems) {
+        console.log(p)
+    }
+
+    // objects p cannot be changed
+    for (const p of elems) {
+        console.log(p)
+    }
+
+    // 'in': logs properties of all p objects
+    for (let p in elems) {
+        console.log(p)
+    }
+
+    // returns all elements that //todo
+    function foo() { return arguments; }
+
+    foo() // returns Arguments as iterator
+    foo(1) // returns 1 argument
+    foo(1, 2) // returns arguments of 1, 2
+
+    const [x, y, z] = foo(1, 2, 3);
+    y; // 2
+
+</script>
+
+</pre>
+
+</body>
+</html>

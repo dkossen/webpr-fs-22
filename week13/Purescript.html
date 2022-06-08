@@ -1,0 +1,25 @@
+
+    module Main where
+
+    import Prelude
+
+    import Effect.Console (logShow)
+    import Effect(Effect)
+    import TryPureScript (render, withConsole)
+
+    id :: forall a. a -> a
+    id x = x
+
+    once :: forall a b. (a->b) -> a -> b
+    once f x = f x
+
+    twice :: forall a. (a->a) -> a -> a
+    twice f x = f (f x)
+
+
+    main :: Effect Unit
+    main = render =<< withConsole do
+        logShow (id "hi")
+    logShow (id 1)
+    logShow (once id 1)
+    logShow (twice id 1)
