@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+
+<script src="../observable/observable.js"></script>
+
+<script>
+
+    // Elvis and Guards (4pts)
+
+    // shows 'Door is open' --> true
+    // const door = {open: false };
+    // const open = door => {
+    //     let result = "open";
+    //     door.open && (result = "already open");
+    //
+    //     door.open = true;
+    //     return result;
+    // };
+    // document.write("Door is " );
+    // document.writeln(open(door) || "closed" );
+
+    /////
+
+    // // shows 'Door is already open' --> true
+    // const door = {open: false };
+    // const open = door => {
+    //     if (door.open) {
+    //         return "already open";
+    //     }
+    //     door.open = true;
+    //     return "open";
+    // };
+    // document.write("Door is " );
+    // document.writeln(open(door) ? open(door) : "closed" );
+
+    /////
+
+    // // shows 'Door is open' --> true
+    // const door = {open: false };
+    // const open = door => {
+    //     if (door.open) {
+    //         return "already open";
+    //     }
+    //     door.open = true;
+    //     return "open";
+    // };
+    // document.write("Door is " );
+    // document.writeln(open(door) || "closed" );
+
+    /////
+    //
+    // // shows 'Door is closed' --> true
+    // const door = {open: false };
+    // const open = door => {
+    //     if (door.open) {
+    //         return "already open";
+    //     }
+    //     door.open = true;
+    //     return "open";
+    // };
+    // document.write("Door is " );
+    // document.writeln(door.open || "closed" );
+
+    /////
+
+
+    // // shows 'Door is open' --> false
+    // const door = {open: false };
+    // const open = door => {
+    //     if (door.open) {
+    //         return "already open";
+    //     }
+    //     door.open = true;
+    //     return "open";
+    // };
+    // document.write("Door is " );
+    // document.writeln(open(door) ? open(door) : "closed" );
+
+    /////
+
+
+    // shows 'Door is already open' --> false
+    const door = {open: false };
+    const open = door => {
+        if (door.open) {
+            return "already open";
+        }
+        door.open = true;
+        return "open";
+    };
+    document.write("Door is " );
+    document.writeln(open(door) || "closed" );
+
+
+</script>
+</body>
+</html>

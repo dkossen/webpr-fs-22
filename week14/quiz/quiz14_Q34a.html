@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+
+<script src="../observable/observable.js"></script>
+
+<script>
+
+    // Where JavaScript is untrue (5pts)
+
+    /* provide code like
+    const value = ____;
+    where you replace the ____ placeholder with a value that will yield
+    different results when used in
+    if (value) ...
+    as opposed to
+    if (value == true) */
+
+
+    // const value = [];
+    // const value = {};
+    const value = "0";
+
+
+    // Test:
+    document.writeln((value ? true : false) !== (value == true ? true : false));
+    // (value ? true : false) !== (value == true ? true : false)
+
+
+</script>
+</body>
+</html>
